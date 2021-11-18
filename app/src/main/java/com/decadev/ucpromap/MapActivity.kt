@@ -71,6 +71,11 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
 
+        sideBarIconsVisibility()
+
+    }
+
+    private fun sideBarIconsVisibility() {
         binding.homeImg.setOnClickListener {
             if (binding.mosqueImg.visibility == View.GONE && binding.houseImg.visibility == View.GONE) {
                 binding.mosqueImg.visibility = View.VISIBLE
@@ -80,7 +85,6 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
                 binding.houseImg.visibility = View.GONE
             }
         }
-
     }
 
     override fun onMapReady(mapboxMap: MapboxMap) {
