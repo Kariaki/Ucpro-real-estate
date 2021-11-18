@@ -36,6 +36,7 @@ import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.plugins.locationlayer.LocationLayerPlugin
 import com.mapbox.mapboxsdk.plugins.places.autocomplete.PlaceAutocomplete
 import com.mapbox.mapboxsdk.plugins.places.autocomplete.model.PlaceOptions
+import com.mapbox.mapboxsdk.style.layers.Property
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource
@@ -69,6 +70,16 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
         mapView = binding.mapView
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
+
+        binding.homeImg.setOnClickListener {
+            if (binding.mosqueImg.visibility == View.GONE && binding.houseImg.visibility == View.GONE) {
+                binding.mosqueImg.visibility = View.VISIBLE
+                binding.houseImg.visibility = View.VISIBLE
+            } else if (binding.mosqueImg.visibility == View.VISIBLE && binding.houseImg.visibility == View.VISIBLE) {
+                binding.mosqueImg.visibility = View.GONE
+                binding.houseImg.visibility = View.GONE
+            }
+        }
 
     }
 

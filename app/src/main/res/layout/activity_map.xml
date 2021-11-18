@@ -45,9 +45,12 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="50dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignEnd="@id/mapView"
-        android:background="#042954"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/side_bar_background"
         android:orientation="vertical">
 
         <ImageView
@@ -64,42 +67,61 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:id="@+id/horizontal_view"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/white"
-            android:visibility="visible"
+        <ImageView
+            android:id="@+id/home_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_round_house_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layers_img" />
+
+        <ImageView
+            android:id="@+id/mosque_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:visibility="gone"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_baseline_mosque_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_img" />
+
+        <ImageView
+            android:id="@+id/house_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:visibility="gone"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_baseline_home_work_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mosque_img" />
+
 
         <ImageView
             android:id="@+id/filter_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="15dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_baseline_filter_alt_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/horizontal_view" />
+            app:layout_constraintTop_toBottomOf="@+id/house_img" />
 
-        <View
-            android:id="@+id/horizontal_view2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/white"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/filter_img" />
 
         <ImageView
             android:id="@+id/bar_chart_img"
@@ -108,93 +130,28 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="20dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_baseline_bar_chart_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/horizontal_view2" />
-
-        <View
-            android:id="@+id/horizontal_view3"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/white"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bar_chart_img" />
-
-
-        <ImageView
-            android:id="@+id/login_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="5dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_baseline_login_24"
-            app:layout_constraintBottom_toTopOf="@id/horizontal_view5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <View
-            android:id="@+id/horizontal_view5"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/white"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/register_img"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/register_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="5dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_baseline_person_24"
-            app:layout_constraintBottom_toTopOf="@id/horizontal_view4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-
-        <View
-            android:id="@+id/horizontal_view4"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/white"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/home_img"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-
-        <ImageView
-            android:id="@+id/home_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="15dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_round_house_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/filter_img" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </RelativeLayout>
+
+
+<!--<View-->
+<!--android:id="@+id/horizontal_view"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="1dp"-->
+<!--android:layout_marginTop="10dp"-->
+<!--android:layout_marginBottom="10dp"-->
+<!--android:background="@color/white"-->
+<!--android:visibility="visible"-->
+<!--app:layout_constraintEnd_toEndOf="parent"-->
+<!--app:layout_constraintStart_toStartOf="parent"-->
+<!--app:layout_constraintTop_toBottomOf="@+id/layers_img" />-->
