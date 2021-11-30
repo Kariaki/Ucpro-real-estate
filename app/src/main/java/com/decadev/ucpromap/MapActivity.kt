@@ -72,7 +72,29 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
         mapView.getMapAsync(this)
 
         sideBarIconsVisibility()
+        pricesVisibilityLayout()
+        regionArea()
 
+    }
+
+    private fun pricesVisibilityLayout() {
+        binding.filterImg.setOnClickListener {
+            if(binding.pricesLayout.visibility == View.GONE) {
+                binding.pricesLayout.visibility = View.VISIBLE
+            } else if(binding.pricesLayout.visibility == View.VISIBLE) {
+                binding.pricesLayout.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun regionArea() {
+        binding.compassImg.setOnClickListener {
+            if(binding.compassRegionLayout.visibility == View.GONE) {
+                binding.compassRegionLayout.visibility = View.VISIBLE
+            } else if(binding.compassRegionLayout.visibility == View.VISIBLE) {
+                binding.compassRegionLayout.visibility = View.GONE
+            }
+        }
     }
 
     private fun sideBarIconsVisibility() {

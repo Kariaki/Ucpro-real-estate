@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Enter_address_button">
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textColor">#ffc107</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

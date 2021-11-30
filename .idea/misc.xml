@@ -3,10 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.27685185185185185" />
+        <entry key="app/src/main/res/drawable/green_background.xml" value="0.2722222222222222" />
+        <entry key="app/src/main/res/drawable/grey_background.xml" value="0.27685185185185185" />
+        <entry key="app/src/main/res/drawable/ic_baseline_explore_24.xml" value="0.27685185185185185" />
+        <entry key="app/src/main/res/drawable/ic_baseline_forest_24.xml" value="0.27685185185185185" />
+        <entry key="app/src/main/res/drawable/ic_house_icon.xml" value="0.27685185185185185" />
+        <entry key="app/src/main/res/drawable/purple_background.xml" value="0.27685185185185185" />
+        <entry key="app/src/main/res/drawable/red_background.xml" value="0.27685185185185185" />
+        <entry key="app/src/main/res/drawable/rent_background.xml" value="0.27685185185185185" />
         <entry key="app/src/main/res/drawable/search_location_background.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/drawable/side_bar_background.xml" value="0.28055555555555556" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21557971014492755" />
-        <entry key="app/src/main/res/layout/activity_map.xml" value="0.25" />
+        <entry key="app/src/main/res/drawable/yellow_background.xml" value="0.27685185185185185" />
+        <entry key="app/src/main/res/font/font.xml" value="0.27685185185185185" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_map.xml" value="0.18741746885258737" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
       </map>
     </option>
@@ -16,5 +27,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.18741746885258737" />
+      </ProjectState>
+    </option>
   </component>
 </project>

@@ -34,24 +34,21 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="8"
-            android:backgroundTint="@color/white"
-            android:textColor="#ffc107"
-            android:textStyle="bold"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="24dp"
-            android:text="Enter Address"/>
+            android:text="@string/enter_address_button"
+            style="@style/Enter_address_button" />
 
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/side_bar_layout"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@id/mapView"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:paddingBottom="10dp"
         android:background="@drawable/side_bar_background"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
 
         <ImageView
             android:id="@+id/layers_img"
@@ -87,9 +84,9 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
-            android:visibility="gone"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_baseline_mosque_24"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/home_img" />
@@ -101,9 +98,9 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
-            android:visibility="gone"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_baseline_home_work_24"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mosque_img" />
@@ -124,7 +121,7 @@
 
 
         <ImageView
-            android:id="@+id/bar_chart_img"
+            android:id="@+id/compass_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -132,7 +129,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_baseline_bar_chart_24"
+            android:src="@drawable/ic_outline_explore_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/filter_img" />
@@ -141,17 +138,279 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    <TextView
+        android:id="@+id/under_twenty_k_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/green_background"
+        android:fontFamily="@font/lato"
+        android:padding="5dp"
+        android:text="Under 20K"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/twenty_k_forty_k_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/lato"
+        android:layout_toEndOf="@+id/under_twenty_k_text_view"
+        android:background="@drawable/yellow_background"
+        android:padding="5dp"
+        android:text="20-40K"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/above_forty_k_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Above 40K"
+        android:padding="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/lato"
+        android:background="@drawable/red_background"
+        android:textSize="15dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/twenty_k_forty_k_text_view"/>
+
+    <TextView
+        android:id="@+id/rent_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/twenty_k_forty_k_text_view"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/lato"
+        android:layout_toEndOf="@+id/under_twenty_k_text_view"
+        android:text="RENT"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/estate_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estate"
+        android:fontFamily="@font/lato"
+        android:textColor="@color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"/>
+
+    <ImageView
+        android:id="@+id/estate_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_other_houses_24"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@id/estate_text_view"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"/>
+
+    <TextView
+        android:id="@+id/plot_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Plot    "
+        android:fontFamily="@font/lato"
+        android:textColor="@color/black"
+        android:layout_above="@id/estate_text_view"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"/>
+
+    <ImageView
+        android:id="@+id/plot_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/ic_baseline_forest_24"
+        android:layout_above="@+id/estate_image_view"
+        android:layout_toStartOf="@+id/plot_text_view"/>
+
+    <TextView
+        android:id="@+id/flat_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flat    "
+        android:fontFamily="@font/lato"
+        android:textColor="@color/black"
+        android:layout_above="@+id/plot_text_view"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"/>
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_above="@+id/plot_image_view"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toStartOf="@+id/flat_text_view"
+        android:src="@drawable/ic_house_icon" />
+
+    <ImageView
+        android:id="@+id/upward_direction_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_arrow_upward_24"
+        android:scaleY="3"
+        android:scaleX="2"
+        android:layout_above="@+id/flat_text_view"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="N"
+        android:textStyle="bold"
+        android:fontFamily="@font/lato"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_above="@+id/upward_direction_image_view"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="10dp"/>
+    
+    <LinearLayout
+        android:id="@+id/compass_region_layout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="#ffffff"
+        android:layout_marginBottom="-40dp"
+        android:layout_toStartOf="@+id/side_bar_layout"
+        android:layout_alignBottom="@+id/side_bar_layout">
+
+        <TextView
+            android:id="@+id/north_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginBottom="-3dp"
+            android:background="@drawable/grey_background"
+            android:fontFamily="@font/lato"
+            android:padding="5dp"
+            android:text="North"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/south_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginBottom="-3dp"
+            android:background="@drawable/purple_background"
+            android:fontFamily="@font/lato"
+            android:padding="5dp"
+            android:text="South"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/east_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:background="@drawable/purple_background"
+            android:fontFamily="@font/lato"
+            android:layout_marginBottom="-3dp"
+            android:padding="5dp"
+            android:text="East"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/west_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginBottom="-3dp"
+            android:background="@drawable/purple_background"
+            android:fontFamily="@font/lato"
+            android:padding="5dp"
+            android:text="West"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/prices_layout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="#5D3FD3"
+        android:layout_marginBottom="20dp"
+        android:layout_toStartOf="@+id/side_bar_layout"
+        android:layout_alignBottom="@+id/side_bar_layout">
+
+        <TextView
+            android:id="@+id/under_thirty_k_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:background="@drawable/grey_background"
+            android:fontFamily="@font/lato"
+            android:padding="5dp"
+            android:text="-30K"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/thirty_to_fifty_k_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:background="@drawable/purple_background"
+            android:fontFamily="@font/lato"
+            android:padding="5dp"
+            android:text="30-50k"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/fifty_k_above"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:background="@drawable/purple_background"
+            android:fontFamily="@font/lato"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="10dp"
+            android:text="50K above"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
 </RelativeLayout>
-
-
-<!--<View-->
-<!--android:id="@+id/horizontal_view"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="1dp"-->
-<!--android:layout_marginTop="10dp"-->
-<!--android:layout_marginBottom="10dp"-->
-<!--android:background="@color/white"-->
-<!--android:visibility="visible"-->
-<!--app:layout_constraintEnd_toEndOf="parent"-->
-<!--app:layout_constraintStart_toStartOf="parent"-->
-<!--app:layout_constraintTop_toBottomOf="@+id/layers_img" />-->
