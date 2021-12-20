@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">UcproMap</string>
     <string name="access_token">pk.eyJ1IjoiZmxldGNoZXIxNyIsImEiOiJja3ZxajMwd2kxbGw5MnFxZjAyaHFuMmNiIn0.J-rYcBZQaOYKQzopFVnPAA</string>
-    <string name="enter_address_button">Enter Address</string>
+    <string name="enter_address_button">Search</string>
 </resources>

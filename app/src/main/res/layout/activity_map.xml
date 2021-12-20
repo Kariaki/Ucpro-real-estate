@@ -34,16 +34,105 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="8"
+            android:textColor="@color/black"
             android:text="@string/enter_address_button"
             style="@style/Enter_address_button" />
 
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/user_side_bar_layout"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/mapView"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/side_bar_background"
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:id="@+id/person_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_baseline_person"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/settings_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_baseline_settings"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/person_img" />
+
+        <ImageView
+            android:id="@+id/add_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_baseline_add"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_img" />
+
+        <ImageView
+            android:id="@+id/favorite_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_baseline_favorite"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_img"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/add_pox_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/user_side_bar_layout"
+        android:layout_alignBottom="@+id/user_side_bar_layout"
+        android:background="@drawable/green_background"
+        android:fontFamily="@font/lato"
+        android:layout_marginEnd="5dp"
+        android:visibility="gone"
+        android:layout_marginBottom="40dp"
+        android:padding="10dp"
+        android:text="Add Pox"
+        android:textColor="#808080"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/side_bar_layout"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@id/mapView"
+        android:layout_below="@+id/user_side_bar_layout"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/side_bar_background"
@@ -175,17 +264,17 @@
         android:id="@+id/above_forty_k_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Above 40K"
-        android:padding="5dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp"
-        android:fontFamily="@font/lato"
-        android:background="@drawable/red_background"
-        android:textSize="15dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/twenty_k_forty_k_text_view"/>
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_toEndOf="@+id/twenty_k_forty_k_text_view"
+        android:background="@drawable/red_background"
+        android:fontFamily="@font/lato"
+        android:padding="5dp"
+        android:text="Above 40K"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/rent_text_view"
@@ -215,13 +304,13 @@
 
     <ImageView
         android:id="@+id/estate_image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_other_houses_24"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@id/estate_text_view"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginEnd="10dp"/>
+        android:layout_toStartOf="@id/estate_text_view"
+        android:src="@drawable/ic_estate__1_" />
 
     <TextView
         android:id="@+id/plot_text_view"
@@ -290,7 +379,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="10dp"/>
-    
+
     <LinearLayout
         android:id="@+id/compass_region_layout"
         android:layout_width="100dp"
@@ -313,7 +402,7 @@
             android:padding="5dp"
             android:text="North"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
@@ -327,7 +416,7 @@
             android:padding="5dp"
             android:text="South"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
@@ -341,7 +430,7 @@
             android:padding="5dp"
             android:text="East"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
@@ -355,7 +444,7 @@
             android:padding="5dp"
             android:text="West"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -381,7 +470,7 @@
             android:padding="5dp"
             android:text="-30K"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
@@ -394,7 +483,7 @@
             android:padding="5dp"
             android:text="30-50k"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
@@ -408,7 +497,7 @@
             android:paddingBottom="10dp"
             android:text="50K above"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
     </LinearLayout>
