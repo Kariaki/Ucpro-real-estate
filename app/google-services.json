@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "910439575598",
+    "project_id": "ucpox-5e417",
+    "storage_bucket": "ucpox-5e417.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910439575598:android:9a19c5a6d2f575c8e42fbf",
+        "android_client_info": {
+          "package_name": "com.decadev.ucpromap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910439575598-jcapa108764an0ntio4fk2qkmr72svq1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDal3auK8EDVgm1w9Ugsv5Pn-2vMIGRuO4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910439575598-jcapa108764an0ntio4fk2qkmr72svq1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

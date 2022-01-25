@@ -17,10 +17,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="@drawable/search_location_background"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="70dp"
+        android:background="@drawable/search_location_background"
         android:orientation="horizontal">
 
         <ImageView
@@ -31,12 +31,12 @@
 
         <Button
             android:id="@+id/btnStart"
+            style="@style/Enter_address_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="8"
-            android:textColor="@color/black"
             android:text="@string/enter_address_button"
-            style="@style/Enter_address_button" />
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -65,48 +65,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/settings_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="20dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_baseline_settings"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/person_img" />
-
-        <ImageView
-            android:id="@+id/add_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="20dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_baseline_add"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settings_img" />
-
-        <ImageView
-            android:id="@+id/favorite_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="20dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_baseline_favorite"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_img"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -114,25 +72,25 @@
         android:id="@+id/add_pox_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toStartOf="@+id/user_side_bar_layout"
-        android:layout_alignBottom="@+id/user_side_bar_layout"
+        android:layout_alignBottom="@+id/side_bar_layout"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toStartOf="@+id/side_bar_layout"
         android:background="@drawable/green_background"
         android:fontFamily="@font/lato"
-        android:layout_marginEnd="5dp"
-        android:visibility="gone"
-        android:layout_marginBottom="40dp"
         android:padding="10dp"
         android:text="Add Pox"
         android:textColor="#808080"
         android:textSize="15sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/side_bar_layout"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/mapView"
         android:layout_below="@+id/user_side_bar_layout"
+        android:layout_alignEnd="@id/mapView"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/side_bar_background"
@@ -154,63 +112,48 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/home_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/flat_img"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_round_house_24"
+            android:src="@drawable/ic_house_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layers_img" />
 
         <ImageView
-            android:id="@+id/mosque_img"
+            android:id="@+id/plot_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_baseline_mosque_24"
-            android:visibility="gone"
+            android:src="@drawable/ic_baseline_forest_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/home_img" />
+            app:layout_constraintTop_toBottomOf="@+id/flat_img" />
+
 
         <ImageView
-            android:id="@+id/house_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/estate_img"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_baseline_home_work_24"
-            android:visibility="gone"
+            android:src="@drawable/ic_noun_estate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mosque_img" />
+            app:layout_constraintTop_toBottomOf="@+id/plot_img" />
 
 
         <ImageView
-            android:id="@+id/filter_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="20dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_baseline_filter_alt_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/house_img" />
-
-
-        <ImageView
-            android:id="@+id/compass_img"
+            android:id="@+id/add_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -218,189 +161,257 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_outline_explore_24"
+            android:src="@drawable/ic_baseline_add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/filter_img" />
-
+            app:layout_constraintTop_toBottomOf="@+id/estate_img" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <TextView
-        android:id="@+id/under_twenty_k_text_view"
+    <LinearLayout
+        android:id="@+id/rent_and_cost_prices_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/green_background"
-        android:fontFamily="@font/lato"
-        android:padding="5dp"
-        android:text="Under 20K"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        android:textStyle="bold" />
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:paddingTop="10dp"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/under_twenty_k_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/red_background"
+            android:fontFamily="@font/lato"
+            android:padding="5dp"
+            android:text="20k+"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
 
-    <TextView
-        android:id="@+id/twenty_k_forty_k_text_view"
+        <TextView
+            android:id="@+id/twenty_k_forty_k_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/light_red_background"
+            android:fontFamily="@font/lato"
+            android:padding="5dp"
+            android:text="15k-20k"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/above_forty_k_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/lighter_red_background"
+            android:fontFamily="@font/lato"
+            android:padding="5dp"
+            android:text="10k-15k"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/five_k_to_ten_k_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bright_red_background"
+            android:fontFamily="@font/lato"
+            android:padding="5dp"
+            android:text="5k-10k"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/zero_k_to_five_k_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/brighter_red_background"
+            android:fontFamily="@font/lato"
+            android:padding="5dp"
+            android:text="0k-5k"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/deposit_prices_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/lato"
-        android:layout_toEndOf="@+id/under_twenty_k_text_view"
-        android:background="@drawable/yellow_background"
-        android:padding="5dp"
-        android:text="20-40K"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        android:textStyle="bold" />
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:paddingTop="10dp"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/fifty_k_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/red_background"
+            android:fontFamily="@font/lato"
+            android:padding="5dp"
+            android:text="50k+"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
 
-    <TextView
-        android:id="@+id/above_forty_k_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_toEndOf="@+id/twenty_k_forty_k_text_view"
-        android:background="@drawable/red_background"
-        android:fontFamily="@font/lato"
-        android:padding="5dp"
-        android:text="Above 40K"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/twenty_k_to_fifty_k_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/light_red_background"
+            android:fontFamily="@font/lato"
+            android:padding="5dp"
+            android:text="20k-50k"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/ten_k_to_twenty_k_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/lighter_red_background"
+            android:fontFamily="@font/lato"
+            android:padding="5dp"
+            android:text="10k-20k"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/zero_to_ten_k_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bright_red_background"
+            android:fontFamily="@font/lato"
+            android:padding="5dp"
+            android:text="0k-10k"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/rent_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/twenty_k_forty_k_text_view"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/blue_background"
         android:fontFamily="@font/lato"
-        android:layout_toEndOf="@+id/under_twenty_k_text_view"
-        android:text="RENT"
-        android:textColor="@color/black"
-        android:textSize="16sp"
+        android:padding="10dp"
+        android:text="Rent"
+        android:textColor="@color/white"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/estate_text_view"
+        android:id="@+id/deposit_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Estate"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="40dp"
+        android:layout_toEndOf="@id/rent_text_view"
+        android:background="@drawable/transparent_background"
         android:fontFamily="@font/lato"
-        android:textColor="@color/black"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="10dp"/>
-
-    <ImageView
-        android:id="@+id/estate_image_view"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_toStartOf="@id/estate_text_view"
-        android:src="@drawable/ic_estate__1_" />
+        android:padding="10dp"
+        android:text="Deposit"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/plot_text_view"
+        android:id="@+id/cost_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Plot    "
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="40dp"
+        android:layout_toEndOf="@id/deposit_text_view"
+        android:background="@drawable/transparent_background"
         android:fontFamily="@font/lato"
-        android:textColor="@color/black"
-        android:layout_above="@id/estate_text_view"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="20dp"/>
+        android:padding="10dp"
+        android:text="Cost"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/plot_image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:src="@drawable/ic_baseline_forest_24"
-        android:layout_above="@+id/estate_image_view"
-        android:layout_toStartOf="@+id/plot_text_view"/>
-
-    <TextView
-        android:id="@+id/flat_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Flat    "
-        android:fontFamily="@font/lato"
-        android:textColor="@color/black"
-        android:layout_above="@+id/plot_text_view"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="20dp"/>
-
-    <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_above="@+id/plot_image_view"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:layout_toStartOf="@+id/flat_text_view"
-        android:src="@drawable/ic_house_icon" />
 
     <ImageView
         android:id="@+id/upward_direction_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_arrow_upward_24"
-        android:scaleY="3"
-        android:scaleX="2"
-        android:layout_above="@+id/flat_text_view"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="40dp"/>
+        android:layout_marginBottom="40dp"
+        android:scaleX="2"
+        android:scaleY="3"
+        android:src="@drawable/ic_baseline_arrow_upward_24" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="N"
-        android:textStyle="bold"
-        android:fontFamily="@font/lato"
-        android:textSize="20sp"
-        android:textColor="@color/black"
         android:layout_above="@+id/upward_direction_image_view"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/lato"
+        android:text="N"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/compass_region_layout"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone"
-        android:background="#ffffff"
+        android:layout_alignBottom="@+id/side_bar_layout"
         android:layout_marginBottom="-40dp"
         android:layout_toStartOf="@+id/side_bar_layout"
-        android:layout_alignBottom="@+id/side_bar_layout">
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/north_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:layout_marginBottom="-3dp"
             android:background="@drawable/grey_background"
             android:fontFamily="@font/lato"
             android:padding="5dp"
             android:text="North"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -409,12 +420,12 @@
             android:id="@+id/south_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:layout_marginBottom="-3dp"
             android:background="@drawable/purple_background"
             android:fontFamily="@font/lato"
             android:padding="5dp"
             android:text="South"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -423,12 +434,12 @@
             android:id="@+id/east_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
+            android:layout_marginBottom="-3dp"
             android:background="@drawable/purple_background"
             android:fontFamily="@font/lato"
-            android:layout_marginBottom="-3dp"
             android:padding="5dp"
             android:text="East"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -437,12 +448,12 @@
             android:id="@+id/west_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:layout_marginBottom="-3dp"
             android:background="@drawable/purple_background"
             android:fontFamily="@font/lato"
             android:padding="5dp"
             android:text="West"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -453,22 +464,22 @@
         android:id="@+id/prices_layout"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone"
-        android:background="#5D3FD3"
+        android:layout_alignBottom="@+id/side_bar_layout"
         android:layout_marginBottom="20dp"
         android:layout_toStartOf="@+id/side_bar_layout"
-        android:layout_alignBottom="@+id/side_bar_layout">
+        android:background="#5D3FD3"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/under_thirty_k_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:background="@drawable/grey_background"
             android:fontFamily="@font/lato"
             android:padding="5dp"
             android:text="-30K"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -477,11 +488,11 @@
             android:id="@+id/thirty_to_fifty_k_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:background="@drawable/purple_background"
             android:fontFamily="@font/lato"
             android:padding="5dp"
             android:text="30-50k"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -490,12 +501,12 @@
             android:id="@+id/fifty_k_above"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
+            android:layout_marginTop="5dp"
             android:background="@drawable/purple_background"
             android:fontFamily="@font/lato"
-            android:layout_marginTop="5dp"
             android:paddingBottom="10dp"
             android:text="50K above"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold" />
