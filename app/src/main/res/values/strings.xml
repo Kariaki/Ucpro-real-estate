@@ -1,6 +1,36 @@
 <resources>
-    <string name="app_name">UcproMap</string>
+    <string name="app_name">UCPOX</string>
     <string name="access_token">pk.eyJ1IjoiZmxldGNoZXIxNyIsImEiOiJja3ZxajMwd2kxbGw5MnFxZjAyaHFuMmNiIn0.J-rYcBZQaOYKQzopFVnPAA</string>
     <string name="enter_address_button">Search</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="tagline">Tagline</string>
+    <string name="sign_in">Sign in</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="or">Or</string>
+    <string name="sign_in_using">SIGN IN USING</string>
+    <string name="google_logo">google logo</string>
+    <string name="facebook_logo">facebook logo</string>
+    <string name="login">Login</string>
+    <string name="add_pox">Add Pox</string>
+    <string name="_20k">20k+</string>
+    <string name="_15k_20k">15k-20k</string>
+    <string name="_10k_15k">10k-15k</string>
+    <string name="_5k_10k">5k-10k</string>
+    <string name="_0k_5k">0k-5k</string>
+    <string name="_50k">50k+</string>
+    <string name="_20k_50k">20k-50k</string>
+    <string name="_10k_20k">10k-20k</string>
+    <string name="_0k_10k">0k-10k</string>
+    <string name="rent">Rent</string>
+    <string name="deposit">Deposit</string>
+    <string name="cost">Cost</string>
+    <string name="n">N</string>
+    <string name="north">North</string>
+    <string name="south">South</string>
+    <string name="east">East</string>
+    <string name="west">West</string>
+    <string name="_30k">-30K</string>
+    <string name="_30_50k">30-50k</string>
+    <string name="_50k_above">50K above</string>
 </resources>
