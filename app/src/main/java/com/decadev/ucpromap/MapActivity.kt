@@ -64,7 +64,6 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
     private val geoJsonSourceLayerId = "GeoJsonSourceLayerId"
     private val symbolIconId = "SymbolIconId"
 
-    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,16 +75,6 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
 
-        val newsRepository = Repository()
-        val viewModelProviderFactory = MainViewModelFactory(newsRepository)
-
-//        viewModel = ViewModelProvider(this, viewModelProviderFactory).get(MainViewModel::class.java)
-
-
-
-//        sideBarIconsVisibility()
-//        pricesVisibilityLayout()
-//        regionArea()
         userSideBar()
         addPoxButton()
         rentVisibility()
@@ -385,13 +374,13 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
     @SuppressLint("MissingPermission")
     private fun enableLocation(loadedMapStyle: Style?) {
         if (PermissionsManager.areLocationPermissionsGranted(this)) {
-            //do something
+            /**do something**/
             locationComponent = mapboxMap!!.locationComponent
             locationComponent?.activateLocationComponent(this, loadedMapStyle!!)
             locationComponent?.setLocationComponentEnabled(true)
 
 
-            //Set components camera mode
+            /**Set components camera mode**/
             locationComponent!!.setCameraMode(CameraMode.TRACKING)
         } else {
             permissionManager = PermissionsManager(this)
@@ -468,16 +457,6 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
         super.onLowMemory()
         binding.mapView.onLowMemory()
     }
-
-//    private fun userResponseViewModel() {
-//        viewModel.userResponse.observe(this, Observer { response ->
-//            if (response.isSuccessful) {
-//                Snackbar.make(binding.root, response.message(), Snackbar.LENGTH_LONG).show()
-//            } else {
-//                Snackbar.make(binding.root, "Sign in Not Successful", Snackbar.LENGTH_LONG).show()
-//            }
-//        })
-//    }
 
 
 }

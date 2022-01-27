@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                     viewModel.pushUserDetails(UserDetails(userInformations))
                     firebaseAuthWithGoogle(account.idToken!!)
                 } catch (e: ApiException) {
-                    // Google Sign In failed, update UI appropriately
+                    /** Google Sign In failed, update UI appropriately **/
                     Snackbar.make(binding.root, "Google sign in failed: $e", Snackbar.LENGTH_LONG).show()
                 }
             } else {
@@ -101,10 +101,10 @@ class MainActivity : AppCompatActivity() {
         mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
+                    /** Sign in success, update UI with the signed-in user's information**/
                     userResponseViewModel()
                 } else {
-                    // If sign in fails, display a message to the user.
+                    /** If sign in fails, display a message to the user.**/
                     Snackbar.make(binding.root, "signInWithCredential:failure: ${task.exception}", Snackbar.LENGTH_LONG).show()
                 }
             }
