@@ -52,11 +52,11 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
     private lateinit var originPosition: Point
     private lateinit var destinationPosition: Point
 
-    //to request permission to access user location
+    /**to request permission to access user location **/
     private lateinit var permissionManager: PermissionsManager
     private var originLocation: Location? = null // This is where we store current location.
 
-    //it is the component that gives us the user location.
+    /** it is the component that gives us the user location. **/
     private var locationComponent: LocationComponent? = null
     private var locationEngine: LocationEngine? = null
 
@@ -116,60 +116,12 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
         }
     }
 
-//    private fun pricesVisibilityLayout() {
-//        binding.filterImg.setOnClickListener {
-//            if(binding.pricesLayout.visibility == View.GONE) {
-//                binding.pricesLayout.visibility = View.VISIBLE
-//            } else if(binding.pricesLayout.visibility == View.VISIBLE) {
-//                binding.pricesLayout.visibility = View.GONE
-//            }
-//        }
-//    }
-
-//    private fun regionArea() {
-//        binding.compassImg.setOnClickListener {
-//            if(binding.compassRegionLayout.visibility == View.GONE) {
-//                binding.compassRegionLayout.visibility = View.VISIBLE
-//            } else if(binding.compassRegionLayout.visibility == View.VISIBLE) {
-//                binding.compassRegionLayout.visibility = View.GONE
-//            }
-//        }
-//    }
-
-//    private fun sideBarIconsVisibility() {
-//        binding.homeImg.setOnClickListener {
-//            if (binding.mosqueImg.visibility == View.GONE && binding.houseImg.visibility == View.GONE) {
-//                binding.mosqueImg.visibility = View.VISIBLE
-//                binding.houseImg.visibility = View.VISIBLE
-//            } else if (binding.mosqueImg.visibility == View.VISIBLE && binding.houseImg.visibility == View.VISIBLE) {
-//                binding.mosqueImg.visibility = View.GONE
-//                binding.houseImg.visibility = View.GONE
-//            }
-//        }
-//    }
-
     private fun userSideBar() {
         binding.personImg.setOnClickListener {
             val myIntent = Intent(this, MainActivity::class.java)
             startActivity(myIntent)
             finish()
         }
-
-//        binding.personImg.setOnClickListener {
-//            if (binding.settingsImg.visibility == View.GONE && binding.addImg.visibility == View.GONE && binding.favoriteImg.visibility == View.GONE) {
-//                binding.settingsImg.visibility = View.VISIBLE
-//                binding.addImg.visibility = View.VISIBLE
-//                binding.favoriteImg.visibility = View.VISIBLE
-//            } else if (binding.settingsImg.visibility == View.VISIBLE && binding.addImg.visibility == View.VISIBLE && binding.favoriteImg.visibility == View.VISIBLE || binding.addPoxTextView.visibility == View.VISIBLE) {
-//                binding.settingsImg.visibility = View.GONE
-//                binding.addImg.visibility = View.GONE
-//                binding.favoriteImg.visibility = View.GONE
-//                binding.addPoxTextView.visibility = View.GONE
-//
-//                val myIntent = Intent(this, MainActivity::class.java)
-//                startActivity(myIntent)
-//            }
-//        }
     }
 
     private fun addPoxButton() {
