@@ -4,19 +4,176 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DFE3FF"
     tools:context=".MainActivity">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/circular_image_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="14dp"
+        android:background="#042954"
+        android:padding="5dp"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        app:srcCompat="@drawable/globe"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp" />
+
+    <ImageView
+        android:id="@+id/ucpox_text_view"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ucpox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circular_image_view" />
+
+    <TextView
+        android:id="@+id/tagline_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:text="@string/tagline"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ucpox_text_view" />
+
+    <TextView
+        android:id="@+id/sign_in_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/sign_in"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tagline_text_view" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phone_number_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:background="#00000000"
+        app:boxBackgroundColor="#00000000"
+        app:boxStrokeColor="#001193"
+        app:boxStrokeWidth="2dp"
+        app:hintEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sign_in_text_view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phone_number_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/lato"
+            android:hint="@string/phone_number"
+            android:textColor="#001193" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/otp_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:background="#00000000"
+        app:boxBackgroundColor="#00000000"
+        app:boxStrokeColor="#001193"
+        app:boxStrokeWidth="2dp"
+        app:hintEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_number_input_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/otp_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/lato"
+            android:hint="@string/enter_otp"
+            android:textColor="#001193" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/or_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/or"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/otp_input_layout" />
+
+    <TextView
+        android:id="@+id/sign_in_options_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/sign_in_using"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/or_text_view" />
+
+    <ImageView
+        android:id="@+id/google_logo_image_view"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="44dp"
+        android:contentDescription="@string/google_logo"
+        android:src="@drawable/google_logo"
+        app:layout_constraintEnd_toStartOf="@id/facebook_logo_image_view"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sign_in_options_text_view" />
+
+    <ImageView
+        android:id="@+id/facebook_logo_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="152dp"
+        android:contentDescription="@string/facebook_logo"
+        android:scaleX="2.0"
+        android:scaleY="2.0"
+        android:src="@drawable/facebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/google_logo_image_view"
+        app:layout_constraintTop_toBottomOf="@id/sign_in_options_text_view" />
 
     <Button
         android:id="@+id/btn_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Map Box Activity"
-        android:textStyle="bold"
-        android:textColor="#ffc107"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="#042954"
+        android:fontFamily="@font/lato"
+        android:text="@string/login"
+        android:textAllCaps="false"
+        android:textColor="#ffc107"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/google_logo_image_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
