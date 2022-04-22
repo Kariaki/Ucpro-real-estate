@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <declare-styleable name="dt">
+
+        <attr name="ButtonTextColor" format="color" />
+        <attr name="optionSettingsColor" format="color"
+            />
+    </declare-styleable>
 </resources>

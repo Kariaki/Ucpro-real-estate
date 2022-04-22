@@ -3,6 +3,7 @@ package com.decadev.ucpromap
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
@@ -43,8 +44,9 @@ import com.mapbox.mapboxsdk.utils.BitmapUtils
 import java.util.*
 import kotlin.collections.ArrayList
 
-class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback,
-    MapboxMap.OnMapClickListener {
+class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
+//    , MapboxMap.OnMapClickListener
+{
     private lateinit var binding: ActivityMapBinding
     private lateinit var mapView: MapView
     private var mapboxMap: MapboxMap? = null
@@ -76,45 +78,10 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
         mapView.getMapAsync(this)
 
         userSideBar()
-        addPoxButton()
-        rentVisibility()
-        costVisibility()
-        depositVisibility()
-
-        binding.addPoxTextView.setOnClickListener {
-            val dialog = PropertyTypeDialogFragment()
-
-            dialog.show(supportFragmentManager, "customDialog")
-        }
 
     }
 
-    private fun rentVisibility() {
-        binding.rentTextView.setOnClickListener {
-            if (binding.rentAndCostPricesLayout.visibility == View.GONE) {
-                binding.depositPricesLayout.visibility = View.GONE
-                binding.rentAndCostPricesLayout.visibility = View.VISIBLE
-            }
-        }
-    }
 
-    private fun costVisibility() {
-        binding.costTextView.setOnClickListener {
-            if (binding.rentAndCostPricesLayout.visibility == View.GONE) {
-                binding.depositPricesLayout.visibility = View.GONE
-                binding.rentAndCostPricesLayout.visibility = View.VISIBLE
-            }
-        }
-    }
-
-    private fun depositVisibility() {
-        binding.depositTextView.setOnClickListener {
-            if (binding.depositPricesLayout.visibility == View.GONE) {
-                binding.rentAndCostPricesLayout.visibility = View.GONE
-                binding.depositPricesLayout.visibility = View.VISIBLE
-            }
-        }
-    }
 
     private fun userSideBar() {
         binding.personImg.setOnClickListener {
@@ -124,22 +91,13 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
         }
     }
 
-    private fun addPoxButton() {
-        binding.addImg.setOnClickListener {
-            if (binding.addPoxTextView.visibility == View.GONE) {
-                binding.addPoxTextView.visibility = View.VISIBLE
-            } else if (binding.addPoxTextView.visibility == View.VISIBLE) {
-                binding.addPoxTextView.visibility = View.GONE
-            }
-        }
-    }
 
     override fun onMapReady(mapboxMap: MapboxMap) {
         this.mapboxMap = mapboxMap
         mapboxMap.setStyle(getString(R.string.navigation_guidance_day)) { style: Style? ->
             enableLocation(style)
             //   addDestinationIconSymbol(style)
-            mapboxMap.addOnMapClickListener(this)
+//            mapboxMap.addOnMapClickListener(this)
 
             initSearchFab()
 
@@ -147,10 +105,10 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
 
             setUpLayer(style)
 
-            val locationIcon =
-                ResourcesCompat.getDrawable(resources, R.drawable.ic_baseline_other_houses_24, null)
-            val bitmapUtils = BitmapUtils.getBitmapFromDrawable(locationIcon)
-            style.addImage(symbolIconId, bitmapUtils!!)
+//            val locationIcon =
+//                ResourcesCompat.getDrawable(resources, R.drawable.ic_baseline_other_houses_24, null)
+//            val bitmapUtils = BitmapUtils.getBitmapFromDrawable(locationIcon)
+//            style.addImage(symbolIconId, bitmapUtils!!)
         }
 
 
@@ -203,10 +161,10 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
     }
 
     private fun addDestinationIconSymbol(loadedMapStyle: Style?) {
-//        val options = BitmapFactory.Options()
-//        options.inPreferredConfig = Bitmap.Config.ARGB_8888
+        val options = BitmapFactory.Options()
+        options.inPreferredConfig = Bitmap.Config.ARGB_8888
 
-        val locationDrawable = getDrawable(R.drawable.ic_baseline_other_houses_24)
+        val locationDrawable = getDrawable(R.drawable.ic_house_icon)
 
         val bitmap = Bitmap.createBitmap(
             locationDrawable!!.intrinsicWidth,
@@ -229,26 +187,19 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
         loadedMapStyle.addLayer(destinationSymbolLayer)
     }
 
-    override fun onMapClick(point: LatLng): Boolean {
-        destinationMarker = mapboxMap?.addMarker(MarkerOptions().apply {
-            position(point)
-        })
-
-        destinationPosition = Point.fromLngLat(point.longitude, point.latitude)
-        originPosition = Point.fromLngLat(
-            locationComponent?.lastKnownLocation!!.longitude,
-            locationComponent?.lastKnownLocation!!.latitude
-        )
-
-//        val destinationMarker = mapboxMap.addMark
-//        val destinationPoint = Point.fromLngLat(point.longitude, point.latitude)
-//        val originPoint = Point.fromLngLat(locationComponent!!.lastKnownLocation!!.longitude, locationComponent!!.lastKnownLocation!!.latitude)
-
-//        val source = mapboxMap!!.style!!.getSourceAs<GeoJsonSource>("destination-icon-id")
-//        source?.setGeoJson(Feature.fromGeometry(destinationPoint))
-
-        return true
-    }
+//    override fun onMapClick(point: LatLng): Boolean {
+//        destinationMarker = mapboxMap?.addMarker(MarkerOptions().apply {
+//            position(point)
+//        })
+//
+//        destinationPosition = Point.fromLngLat(point.longitude, point.latitude)
+//        originPosition = Point.fromLngLat(
+//            locationComponent?.lastKnownLocation!!.longitude,
+//            locationComponent?.lastKnownLocation!!.latitude
+//        )
+//
+//        return true
+//    }
 
     private fun setUpLayer(loadedMapStyle: Style) {
         loadedMapStyle.addLayer(
@@ -408,6 +359,10 @@ class MapActivity : AppCompatActivity(), PermissionsListener, OnMapReadyCallback
     override fun onLowMemory() {
         super.onLowMemory()
         binding.mapView.onLowMemory()
+    }
+
+    fun goingToAddPoxLocation(view: View) {
+        startActivity(Intent(this, AddLocation::class.java))
     }
 
 

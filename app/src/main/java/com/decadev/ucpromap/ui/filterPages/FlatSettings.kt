@@ -1,60 +1,140 @@
 package com.decadev.ucpromap.ui.filterPages
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import androidx.lifecycle.ViewModelProviders
 import com.decadev.ucpromap.R
+import com.decadev.ucpromap.databinding.FragmentFlatSettingsBinding
+import com.decadev.ucpromap.utils.OptionSet
+import com.decadev.ucpromap.viewModel.FilterStateViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FlatSettings.newInstance] factory method to
- * create an instance of this fragment.
- */
-class FlatSettings : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class FlatSettings : Fragment(), RadioGroup.OnCheckedChangeListener, View.OnClickListener {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
+    lateinit var binding: FragmentFlatSettingsBinding
+
+    lateinit var optionSets: List<OptionSet>
+
+    lateinit var optionsViewModel: FilterStateViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_flat_settings, container, false)
+        binding = FragmentFlatSettingsBinding.inflate(layoutInflater)
+        optionsViewModel =
+            ViewModelProviders.of(requireActivity()).get(FilterStateViewModel::class.java)
+
+        optionSets = listOf(
+            OptionSet(
+                binding.sellingCostOption,
+                binding.sellingCostRadioGroup,
+                binding.sellingCostButton
+            ),
+            OptionSet(
+                binding.rentOption,
+                binding.rentRadioGroup,
+                binding.rentButton
+            ),
+            OptionSet(
+                binding.depositOption,
+                binding.depositRadioGroup,
+                binding.depositButton
+            ),
+            OptionSet(
+                binding.roomConfigOption,
+                binding.roomConfigRadioGroup,
+                binding.roomConfigButton
+            ),
+            OptionSet(
+                binding.builtUpAreaOption,
+                binding.builtUpAreaRadioGroup,
+                binding.builtUpButon
+            ),
+            OptionSet(
+                binding.floorOption,
+                binding.flooradioGroup,
+                binding.floorButton
+            ),
+
+            )
+
+
+        binding.topRadioGroup.setOnCheckedChangeListener(this)
+        hideAllViews()
+
+        binding.spinner.adapter = ArrayAdapter<String>(
+            requireContext(), android.R.layout.simple_dropdown_item_1line,
+            resources.getStringArray(R.array.facing)
+        )
+        binding.spinner.setSelection(0)
+
+        optionClicks()
+
+        optionsViewModel.selectedFilterOption.observe(viewLifecycleOwner) {
+
+            if (it.isVisible) {
+                hideAllViews()
+                it.showView(requireContext())
+            }
+
+        }
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FlatSettings.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FlatSettings().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun optionClicks() {
+        binding.depositOption.setOnClickListener(this)
+        binding.rentOption.setOnClickListener(this)
+        binding.sellingCostOption.setOnClickListener(this)
+        binding.builtUpAreaOption.setOnClickListener(this)
+        binding.floorOption.setOnClickListener(this)
+        binding.roomConfigOption.setOnClickListener(this)
+    }
+
+    override fun onCheckedChanged(p0: RadioGroup?, p1: Int) {
+        if (p0 == binding.topRadioGroup) {
+
+            val button = binding.root.findViewById<RadioButton>(p1)
+            when (button) {
+                binding.sale -> {
+
+                    binding.sellingCostOption.visibility = View.VISIBLE
+                    binding.rentOption.visibility = View.GONE
+                    binding.depositOption.visibility = View.GONE
+                }
+                binding.rent -> {
+                    binding.sellingCostOption.visibility = View.GONE
+                    binding.rentOption.visibility = View.VISIBLE
+                    binding.depositOption.visibility = View.VISIBLE
                 }
             }
+        }
     }
+
+    override fun onClick(p0: View?) {
+
+        val clickedOption = optionSets.find { it.linear == p0 }
+        if (clickedOption != null) {
+            optionsViewModel.publishFilterOption(clickedOption.apply { showView(requireContext()) })
+        }
+    }
+
+    private fun hideAllViews() {
+        optionSets.forEach { it.hideView(requireContext()) }
+    }
+
+    private fun showAllViews() {
+        optionSets.forEach { it.showView(requireContext()) }
+    }
+
+
 }

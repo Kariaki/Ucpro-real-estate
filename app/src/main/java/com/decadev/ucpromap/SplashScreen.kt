@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.decadev.ucpromap.ui.FilterFragment
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,7 +13,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val myIntent = Intent(this, MapActivity::class.java)
+            val myIntent = Intent(this, FilterFragment::class.java)
             startActivity(myIntent)
             finish()
         }, 3000)

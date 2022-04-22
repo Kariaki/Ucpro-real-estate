@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlotSaleLease">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+    <LinearLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:onClick="goToBack"
+                android:padding="5dp"
+                android:src="@drawable/mapbox_ic_arrow_back"
+               />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="Add Pox"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:textColorHint="@color/teal_200"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:background="@drawable/background_circle_yello"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="10dp"
+
+            android:onClick="goToBack"
+            android:padding="5dp"
+            android:src="@drawable/ic_clear" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/circle_view"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="5dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/header_layout" >
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:backgroundTint="@color/teal_200"
+            android:background="@drawable/background_circle" />
+        <View
+            android:layout_width="100dp"
+            android:backgroundTint="@color/teal_200"
+            android:background="@drawable/background_circle"
+            android:layout_height="2dp"  />
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:backgroundTint="@color/teal_200"
+            android:background="@drawable/background_circle" />
+        <View
+            android:layout_width="100dp"
+            android:background="@drawable/background_circle"
+            android:id="@+id/pox_details_line"
+            android:backgroundTint="@color/md_grey_400"
+            android:layout_height="2dp"  />
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:backgroundTint="@color/md_grey_400"
+            android:id="@+id/pox_details_circle"
+            android:background="@drawable/background_circle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/circle_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/circle_view"
+        android:layout_marginHorizontal="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_size"
+            android:text="Location\ndetails"  />
+        <View
+            android:layout_width="70dp"
+            android:layout_height="0dp"  />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_size"
+            android:text="Pox\ndetails"  />
+        <View
+            android:layout_width="80dp"
+            android:layout_height="0dp"  />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_grey_400"
+            android:textAlignment="center"
+            android:id="@+id/pox_details_text"
+            android:textSize="@dimen/text_size"
+            android:text="Other\ndetails"  />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/boxHolder"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/circle_view_title"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+
+        <RadioGroup
+            android:id="@+id/sale_lease"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="10dp" >
+
+
+            <RadioButton
+                android:id="@+id/sale_btn"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sale"
+                android:layout_marginRight="20dp"
+                android:textSize="@dimen/button_size" />
+
+
+
+
+            <RadioButton
+                android:id="@+id/lease_btn"
+                android:layout_width="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lease"
+                android:textSize="@dimen/button_size"/>
+
+
+        </RadioGroup>
+
+
+        <!--        for Sale cost -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:id="@+id/sale_cost">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter selling cost"
+                    android:textSize="@dimen/edit_text"
+                    android:paddingHorizontal="15dp"
+                    android:paddingTop="15dp"
+                    android:inputType="number"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/background_blank"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:textSize="@dimen/edit_text"
+                    android:text="M" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@color/md_grey_400"  />
+
+        </LinearLayout>
+
+        <!--        for lease cost-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:id="@+id/lease_cost">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter lease amount"
+                    android:textSize="@dimen/edit_text"
+                    android:paddingHorizontal="15dp"
+                    android:paddingTop="15dp"
+                    android:inputType="number"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/background_blank"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:textSize="@dimen/edit_text"
+                    android:text="M" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@color/md_grey_400"  />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter lease period"
+                    android:textSize="@dimen/edit_text"
+                    android:paddingHorizontal="15dp"
+                    android:paddingTop="15dp"
+                    android:inputType="number"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/background_blank"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:textSize="@dimen/edit_text"
+                    android:text="Year" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@color/md_grey_400"  />
+
+
+
+        </LinearLayout>
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/md_grey_400"
+            android:hint="Enter contact name"
+            android:padding="15dp"
+            android:layout_marginVertical="5dp"
+            android:textSize="@dimen/edit_text" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/edit_text"
+            android:backgroundTint="@color/md_grey_400"
+            android:hint="Enter contact number"
+            android:layout_marginVertical="5dp"
+            android:padding="15dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:textSize="@dimen/edit_text"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/full_squre"
+            android:hint="Add Description"
+            android:padding="15dp"
+            android:gravity="start" />
+
+
+    </LinearLayout>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_height="match_parent"
+            android:layout_below="@id/boxHolder"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/teal_200"
+            android:text="Submit"
+            android:padding="5dp"
+            android:textColor="@color/white" />
+
+
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>
+

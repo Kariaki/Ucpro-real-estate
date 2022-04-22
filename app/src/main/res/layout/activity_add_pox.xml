@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".AddPox">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+
+    <LinearLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:onClick="goToBack"
+                android:padding="5dp"
+                android:src="@drawable/mapbox_ic_arrow_back"
+               />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Add Pox"
+                android:textColorHint="@color/teal_200"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/background_circle_yello"
+            android:onClick="goToBack"
+            android:padding="5dp"
+            android:src="@drawable/ic_clear"
+            app:tint="@color/black" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/circle_view"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/header_layout"
+        android:layout_marginHorizontal="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/background_circle"
+            android:backgroundTint="@color/teal_200" />
+
+        <View
+            android:id="@+id/pox_details_line"
+            android:layout_width="100dp"
+            android:layout_height="2dp"
+            android:background="@drawable/background_circle"
+            android:backgroundTint="@color/md_grey_400" />
+
+        <View
+            android:layout_width="15dp"
+            android:id="@+id/pox_details_circle"
+            android:layout_height="15dp"
+            android:background="@drawable/background_circle"
+            android:backgroundTint="@color/md_grey_400" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="2dp"
+            android:background="@drawable/background_circle"
+            android:backgroundTint="@color/md_grey_400" />
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/background_circle"
+            android:backgroundTint="@color/md_grey_400" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/circle_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/circle_view"
+        android:layout_marginHorizontal="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location\ndetails"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_size" />
+
+        <View
+            android:layout_width="70dp"
+            android:layout_height="0dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pox\ndetails"
+            android:id="@+id/pox_details_text"
+            android:textAlignment="center"
+            android:textColor="@color/md_grey_400"
+            android:textSize="@dimen/text_size" />
+
+        <View
+            android:layout_width="80dp"
+            android:layout_height="0dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Other\ndetails"
+            android:textAlignment="center"
+            android:textColor="@color/md_grey_400"
+            android:textSize="@dimen/text_size" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/add_image"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_below="@+id/circle_view_title"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        android:background="@drawable/button_background"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_baseline_image_24"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="Click to Add \n images"
+            android:paddingRight="30dp"
+            android:textColor="@color/teal_200"
+            android:textColorHint="@color/teal_200"
+            android:textSize="@dimen/text_size" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_image"
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Property Name"
+            android:padding="15dp"
+            android:textSize="@dimen/edit_text" />
+
+
+        <RadioGroup
+            android:id="@+id/property_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="15dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/flat_btn"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Flat"
+                android:layout_marginRight="20dp"
+                android:textAllCaps="true"
+                android:textSize="@dimen/button_size" />
+
+            <RadioButton
+                android:id="@+id/plot_btn"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plot"
+                android:textAllCaps="true"
+                android:layout_marginRight="20dp"
+                android:textSize="@dimen/button_size" />
+
+            <RadioButton
+                android:id="@+id/estab_btn"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estab"
+                android:textAllCaps="true"
+                android:textSize="@dimen/button_size" />
+
+        </RadioGroup>
+
+
+        <!--        layout of flat-->
+        <LinearLayout
+            android:id="@+id/flat_property"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"  >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/md_grey_400"
+                android:hint="Enter floor no."
+                android:inputType="number"
+                android:padding="15dp"
+                android:textSize="@dimen/edit_text" />
+
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1bhk"
+                    android:layout_marginEnd="20dp"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/button_size" />
+
+                <RadioButton
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2bhk"
+                    android:textAllCaps="true"
+                    android:layout_marginEnd="20dp"
+                    android:textSize="@dimen/button_size" />
+
+                <RadioButton
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3bhk"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/button_size" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="10dp"
+                    android:text="Select Facing Type : "
+                    android:textSize="@dimen/text_size" />
+
+                <Spinner
+                    android:id="@+id/facing_type_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/teal_200"
+                    android:entries="@array/facing"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_blank"
+                    android:hint="Enter built up area"
+                    android:inputType="number"
+                    android:paddingHorizontal="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="@dimen/edit_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Sq ft"
+                    android:textSize="@dimen/edit_text" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@color/md_grey_400" />
+
+
+        </LinearLayout>
+
+        <!--        layout of plot-->
+        <LinearLayout
+            android:id="@+id/plot_property"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"  >
+
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agriculture"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text_size" />
+
+                <RadioButton
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Residential"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text_size" />
+
+                <RadioButton
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Commercial"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text_size" />
+
+            </RadioGroup>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_blank"
+                    android:hint="Enter plot area"
+                    android:paddingHorizontal="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="@dimen/edit_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Sq ft"
+                    android:textSize="@dimen/edit_text" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@color/md_grey_400" />
+
+
+        </LinearLayout>
+
+        <!--        layout of estab-->
+        <LinearLayout
+            android:id="@+id/estab_property"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_blank"
+                    android:hint="Enter floor area"
+                    android:inputType="number"
+                    android:paddingHorizontal="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="@dimen/edit_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Sq ft"
+                    android:textSize="@dimen/edit_text" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@color/md_grey_400" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!--buttons for diff diff activeities like plot estab flat-->
+
+
+    <!--    by default btn-->
+    <LinearLayout
+        android:id="@+id/next_default_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/blue"
+            android:onClick="goingToShowToast"
+            android:padding="5dp"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_size" />
+
+    </LinearLayout>
+
+
+    <!--    goint to next flat btn-->
+    <LinearLayout
+        android:id="@+id/next_flat_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/blue"
+            android:onClick="goingToNextFlat"
+            android:padding="5dp"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_size" />
+
+    </LinearLayout>
+
+    <!--    going to next plot btn-->
+    <LinearLayout
+        android:id="@+id/next_plot_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/blue"
+            android:onClick="goingToNextPlot"
+            android:padding="5dp"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_size" />
+
+    </LinearLayout>
+
+    <!--    going to next estab btn-->
+    <LinearLayout
+        android:id="@+id/next_estab_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/blue"
+            android:onClick="goingToNextEstab"
+            android:padding="5dp"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_size" />
+
+    </LinearLayout>
+
+
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,60 +1,123 @@
 package com.decadev.ucpromap.ui
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.LinearLayout
+import android.widget.SpinnerAdapter
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProviders
 import com.decadev.ucpromap.R
+import com.decadev.ucpromap.databinding.FragmentFilterBinding
+import com.decadev.ucpromap.ui.adapters.FilterPageAdapter
+import com.decadev.ucpromap.ui.filterPages.EstabSettings
+import com.decadev.ucpromap.ui.filterPages.FlatSettings
+import com.decadev.ucpromap.ui.filterPages.PlotSettings
+import com.decadev.ucpromap.utils.FilterStates
+import com.decadev.ucpromap.viewModel.FilterStateViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FilterFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class FilterFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class FilterFragment : AppCompatActivity(), AdapterView.OnItemSelectedListener,
+        View.OnClickListener {
+
+
+    lateinit var binding: FragmentFilterBinding
+
+    lateinit var stateViewModel: FilterStateViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        binding = FragmentFilterBinding.inflate(layoutInflater)
+        stateViewModel = ViewModelProviders.of(this).get(FilterStateViewModel::class.java)
+        setContentView(binding.root)
+
+        val adapter = ArrayAdapter<String>(
+                this, android.R.layout.simple_dropdown_item_1line,
+                listOf("Hello", "World", "good")
+        )
+
+        binding.viewPager.isUserInputEnabled = false
+        binding.viewPager.adapter =
+                FilterPageAdapter(listOf(FlatSettings(), PlotSettings(), EstabSettings()), this)
+
+        binding.plot.setOnClickListener(this)
+        binding.flat.setOnClickListener(this)
+        binding.estab.setOnClickListener(this)
+
+        stateViewModel.filterStates.observe(this) {
+
+            updateUI(it!!)
+
+            when (it) {
+                FilterStates.FLAT -> binding.viewPager.setCurrentItem(0, false)
+                FilterStates.PLOT -> binding.viewPager.setCurrentItem(1, false)
+                FilterStates.ESTAB -> binding.viewPager.setCurrentItem(2, false)
+            }
+        }
+
+
+    }
+
+    private fun updateUI(filterStates: FilterStates) {
+        when (filterStates) {
+            FilterStates.FLAT -> {
+                clearStates()
+                binding.flat.background =
+                        ContextCompat.getDrawable(this, R.drawable.filter_selected_background)
+                binding.flat.elevation=5f
+            }
+            FilterStates.PLOT -> {
+
+                clearStates()
+                binding.plot.background =
+                        ContextCompat.getDrawable(this, R.drawable.filter_selected_background)
+                binding.flat.elevation=5f
+            }
+            FilterStates.ESTAB -> {
+
+                clearStates()
+                binding.estab.background =
+                        ContextCompat.getDrawable(this, R.drawable.filter_selected_background)
+                binding.flat.elevation=5f
+            }
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_filter, container, false)
+    private fun clearStates() {
+
+        val allStates = listOf<LinearLayout>(binding.plot, binding.flat, binding.estab)
+        allStates.forEach {
+            setBackground(it)
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FilterFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FilterFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun setBackground(layout: LinearLayout) {
+        layout.background = ContextCompat.getDrawable(this, R.drawable.filter_unselected_background)
+        layout.elevation=5f
     }
+
+    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+
+    }
+
+    override fun onClick(p0: View?) {
+        when (p0) {
+            binding.plot -> stateViewModel.publishState(FilterStates.PLOT)
+            binding.flat -> stateViewModel.publishState(FilterStates.FLAT)
+            binding.estab -> stateViewModel.publishState(FilterStates.ESTAB)
+            else -> stateViewModel.publishState(FilterStates.FLAT)
+
+        }
+    }
+
 }

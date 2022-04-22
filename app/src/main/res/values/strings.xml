@@ -33,4 +33,16 @@
     <string name="_30k">-30K</string>
     <string name="_30_50k">30-50k</string>
     <string name="_50k_above">50K above</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="facing">
+        <item >North</item>
+        <item>South</item>
+        <item>East</item>
+        <item>West</item>
+        <item>North-East</item>
+        <item>South-East</item>
+        <item>North-West</item>
+        <item>South-West</item>
+    </string-array>
 </resources>

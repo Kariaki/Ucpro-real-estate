@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddLocation">
+
+
+    <com.mapbox.mapboxsdk.maps.MapView xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        mapbox:mapbox_cameraZoom="3.5" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:onClick="goToBack"
+                android:padding="5dp"
+                android:src="@drawable/mapbox_ic_arrow_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="Add Pox"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:textColorHint="@color/teal_200"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:background="@drawable/background_circle"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="10dp"
+            app:tint="@color/black"
+            android:onClick="goToBack"
+            android:padding="5dp"
+            android:src="@drawable/ic_clear" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/circle_view"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="5dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/header_layout" >
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:id="@+id/pox_details_circle"
+            android:backgroundTint="@color/md_grey_400"
+            android:background="@drawable/background_circle" />
+        <View
+            android:layout_width="100dp"
+            android:layout_height="2dp"
+            android:backgroundTint="@color/md_grey_400"
+            android:background="@drawable/background_circle" />
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:backgroundTint="@color/md_grey_400"
+            android:background="@drawable/background_circle" />
+        <View
+            android:layout_width="100dp"
+            android:backgroundTint="@color/md_grey_400"
+            android:layout_height="2dp"
+            android:background="@drawable/background_circle" />
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:backgroundTint="@color/md_grey_400"
+            android:background="@drawable/background_circle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/circle_view_title"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="5dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/circle_view" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pox_details_text"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/md_grey_400"
+            android:text="Location\ndetails"  />
+        <View
+            android:layout_width="65dp"
+            android:layout_height="0dp"  />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/md_grey_400"
+            android:text="Pox\ndetails"  />
+        <View
+            android:layout_width="75dp"
+            android:layout_height="0dp"  />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/md_grey_400"
+            android:textSize="@dimen/text_size"
+            android:text="Other\ndetails"  />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menu_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/circle_view_title"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="50dp"
+        android:padding="2dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/btnStart"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="5dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_background">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/edit_text"
+                android:layout_weight="1"
+                android:background="@drawable/background_blank"
+                android:layout_height="match_parent"
+                android:paddingLeft="15dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/teal_200"
+                android:text="Enter pox address" />
+
+
+            <ImageView
+                android:layout_width="40dp"
+                android:padding="5dp"
+                android:layout_height="match_parent"
+                app:tint="@color/teal_200"
+                android:src="@drawable/ic_baseline_search"  />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/live_location_button"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_marginHorizontal="5dp"
+            android:orientation="horizontal"
+            android:backgroundTint="@color/teal_200"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_background">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                app:tint="@color/white"
+                android:padding="5dp"
+                android:src="@drawable/mapbox_plugins_ic_user_location"  />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/edit_text"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:text="Use current location" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/teal_200"
+            android:text="Next"
+            android:onClick="goingToNext"
+            android:padding="5dp"
+            android:textColor="@color/white" />
+
+
+</RelativeLayout>
